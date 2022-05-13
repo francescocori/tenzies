@@ -16,5 +16,8 @@ The goal is to get all ten dice on the same value in as little time as possible.
 
 3. Run the command `npm start` to see the app running.
 
-https://user-images.githubusercontent.com/77288139/168308680-5063f5c4-3335-4608-8b52-cf7f47f189f1.mov
+
+
+
+https://user-images.githubusercontent.com/77288139/168311767-b3e3eba8-51a5-4e09-bb3a-d4814d60aad0.mov
 
