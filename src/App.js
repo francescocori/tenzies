@@ -24,11 +24,15 @@ function App() {
   const [tenzies, setTenzies] = useState(false);
 
   const rollDice = () => {
-    setDice((oldDice) =>
-      oldDice.map((die) => {
-        return die.isHeld ? die : generateNewDie();
-      })
-    );
+    if (tenzies === true) {
+      setTenzies(false);
+      setDice(allNewDice());
+    } else
+      setDice((oldDice) =>
+        oldDice.map((die) => {
+          return die.isHeld ? die : generateNewDie();
+        })
+      );
   };
 
   const holdDice = (id) => {
