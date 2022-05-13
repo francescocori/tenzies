@@ -3,16 +3,18 @@ import Die from "./Components/Die";
 import { useState } from "react";
 import { nanoid } from "nanoid";
 function App() {
+  const generateNewDie = () => {
+    return {
+      value: Math.floor(Math.random() * 6) + 1,
+      isHeld: false,
+      id: nanoid(),
+    };
+  };
+
   const allNewDice = () => {
     const newDice = [];
     for (let i = 0; i < 10; i++) {
-      let die = {
-        value: Math.floor(Math.random() * 6) + 1,
-        isHeld: false,
-        id: nanoid(),
-      };
-
-      newDice.push(die);
+      newDice.push(generateNewDie());
     }
     return newDice;
   };
@@ -20,7 +22,11 @@ function App() {
   const [dice, setDice] = useState(allNewDice());
 
   const rollDice = () => {
-    setDice(allNewDice());
+    setDice((oldDice) =>
+      oldDice.map((die) => {
+        return die.isHeld ? die : generateNewDie();
+      })
+    );
   };
 
   const holdDice = (id) => {
@@ -39,13 +45,12 @@ function App() {
         current value between rolls.
       </p>
       <div className="die-container">
-        {dice.map((die, index) => (
+        {dice.map((die) => (
           <Die
             value={die.value}
             key={die.id}
             isHeld={die.isHeld}
-            holdDice={holdDice}
-            id={die.id}
+            holdDice={() => holdDice(die.id)}
           />
         ))}
       </div>
