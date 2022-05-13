@@ -1,7 +1,8 @@
 import "./App.css";
 import Die from "./Components/Die";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
+
 function App() {
   const generateNewDie = () => {
     return {
@@ -20,6 +21,7 @@ function App() {
   };
 
   const [dice, setDice] = useState(allNewDice());
+  const [tenzies, setTenzies] = useState(false);
 
   const rollDice = () => {
     setDice((oldDice) =>
@@ -36,6 +38,15 @@ function App() {
       })
     );
   };
+  useEffect(() => {
+    if (
+      dice.every((die) => die.value === dice[0].value) &&
+      dice.every((die) => die.isHeld === true)
+    ) {
+      console.log("you win");
+      setTenzies(true);
+    }
+  }, [dice]);
 
   return (
     <main className="main">
@@ -44,6 +55,7 @@ function App() {
         Roll until all dice are the same. Click each die to freeze it at its
         current value between rolls.
       </p>
+      {tenzies && <div className="winner">You Won!!</div>}
       <div className="die-container">
         {dice.map((die) => (
           <Die
@@ -55,7 +67,7 @@ function App() {
         ))}
       </div>
       <button className="roll-btn" onClick={rollDice}>
-        roll
+        {tenzies ? "New Game" : "Roll"}
       </button>
     </main>
   );
