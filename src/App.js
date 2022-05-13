@@ -1,5 +1,7 @@
 import "./App.css";
 import Die from "./Components/Die";
+import { useState } from "react";
+
 function App() {
   const allNewDice = () => {
     const newDice = [];
@@ -9,8 +11,7 @@ function App() {
     }
     return newDice;
   };
-
-  console.log(allNewDice());
+  const [dice, setDice] = useState(allNewDice());
 
   return (
     <main className="main">
@@ -20,16 +21,9 @@ function App() {
         current value between rolls.
       </p>
       <div className="die-container">
-        <Die value="1" />
-        <Die value="1" />
-        <Die value="1" />
-        <Die value="1" />
-        <Die value="1" />
-        <Die value="1" />
-        <Die value="1" />
-        <Die value="1" />
-        <Die value="1" />
-        <Die value="1" />
+        {dice.map((die, index) => (
+          <Die value={die} key={index} />
+        ))}
       </div>
     </main>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
-const Die = () => {
-  return <div className="die">1</div>;
+const Die = (props) => {
+  return <div className="die">{props.value}</div>;
 };
 
 export default Die;
