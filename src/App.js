@@ -12,7 +12,9 @@ function App() {
     return newDice;
   };
   const [dice, setDice] = useState(allNewDice());
-
+  const rollDice = () => {
+    setDice(allNewDice());
+  };
   return (
     <main className="main">
       <h1 className="title">Tenzies</h1>
@@ -25,6 +27,9 @@ function App() {
           <Die value={die} key={index} />
         ))}
       </div>
+      <button className="roll-btn" onClick={rollDice}>
+        roll
+      </button>
     </main>
   );
 }
