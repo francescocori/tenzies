@@ -1,5 +1,5 @@
 import "./App.css";
-
+import Die from "./Components/Die";
 function App() {
   return (
     <main className="main">
@@ -9,16 +9,16 @@ function App() {
         current value between rolls.
       </p>
       <div className="die-container">
-        <div className="die">1</div>
-        <div className="die">2</div>
-        <div className="die">3</div>
-        <div className="die">4</div>
-        <div className="die">5</div>
-        <div className="die">6</div>
-        <div className="die">7</div>
-        <div className="die">8</div>
-        <div className="die">9</div>
-        <div className="die">10</div>
+        <Die value="1" />
+        <Die value="1" />
+        <Die value="1" />
+        <Die value="1" />
+        <Die value="1" />
+        <Die value="1" />
+        <Die value="1" />
+        <Die value="1" />
+        <Die value="1" />
+        <Die value="1" />
       </div>
     </main>
   );
