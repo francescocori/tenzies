@@ -19,5 +19,9 @@ The goal is to get all ten dice on the same value in as little time as possible.
 
 
 
-https://user-images.githubusercontent.com/77288139/168311767-b3e3eba8-51a5-4e09-bb3a-d4814d60aad0.mov
+
+
+
+https://user-images.githubusercontent.com/77288139/168413577-7cbc2995-be82-4f99-9cbc-eb59d6ce56e4.mov
+
 
